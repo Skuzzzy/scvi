@@ -1,7 +1,6 @@
 .PHONY: all util clean
 
-all:
-	util
+all: util
 
 util:
 	mkdir -p bin
