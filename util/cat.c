@@ -1,6 +1,7 @@
-
 #include <stdio.h>
 #define putchar(c) putc((c),stdout)
+
+int tab_flag = 0;
 
 void ucat(FILE *file)
 {
@@ -8,7 +9,16 @@ void ucat(FILE *file)
     char ch = getc(file);
     while(ch != EOF)
     {
-	putc(ch, stdout);
+	if (tab_flag && ch == '\t')
+	{
+	    putc('^', stdout);
+	    putc('I', stdout);
+	}
+	else
+	{
+	    putc(ch, stdout);
+	}
+
 	ch = getc(file);
     }
 }
@@ -32,6 +42,13 @@ int main(int argc, char **argv)
             int argindex = 1;
 	    while(argv[i][argindex] != '\0')
 	    {
+		switch(argv[i][argindex])
+		{
+		case 't':
+		case 'T':
+		    tab_flag = 1;
+		    break;
+		}
 		//  Handle no cmd line flags at the moment
 		//putchar(argv[i][argindex++]);
 		//putchar('\n');
