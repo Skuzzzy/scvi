@@ -35,8 +35,9 @@ int main(int argc, char **argv)
 		//  Handle no cmd line flags at the moment
 		//putchar(argv[i][argindex++]);
 		//putchar('\n');
-		flag_group_count++;
+		argindex++;
 	    }
+	    flag_group_count++;
         }
         else 
 	{
@@ -52,7 +53,7 @@ int main(int argc, char **argv)
 	    }
         }
     }
-
+//    printf("%d %d", argc, flag_group_count);
     if(argc-flag_group_count-1 == 0)
     {
 	ucat(stdin);
