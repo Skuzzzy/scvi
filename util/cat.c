@@ -24,6 +24,7 @@ int main(int argc, char **argv)
     */
 
     // Scan argv
+    int flag_group_count = 0;
     for(int i=1; i<argc; i++)
     {
 	if(argv[i][0] == '-')
@@ -34,6 +35,7 @@ int main(int argc, char **argv)
 		//  Handle no cmd line flags at the moment
 		//putchar(argv[i][argindex++]);
 		//putchar('\n');
+		flag_group_count++;
 	    }
         }
         else 
@@ -49,6 +51,11 @@ int main(int argc, char **argv)
 		ucat(in);
 	    }
         }
+    }
+
+    if(argc-flag_group_count-1 == 0)
+    {
+	ucat(stdin);
     }
     
     
