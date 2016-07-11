@@ -12,4 +12,6 @@ int main()
 	fgets(buffer, BUF_SIZE, stdin);
 	printf("i: %s", buffer);
     }
+
+    return 0;
 }
